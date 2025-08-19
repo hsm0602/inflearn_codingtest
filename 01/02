@@ -1,1 +1,25 @@
+// my code
+import java.util.*;
 
+public class Main {
+	public static void main(String[] args) {
+		char[] c;
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		c = str.toCharArray();
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isUpperCase(c[i])) { // 대소문자를 구분하는 함수가 존재.
+				c[i] = Character.toLowerCase(c[i]);
+			}
+			else if (Character.isLowerCase(c[i])) {
+				c[i] = Character.toUpperCase(c[i]);
+			}
+		}
+		// String answer = c.toString(); // toString 함수는 문자 배열을 문자열로 바꾸는 함수가 아니다. 객체를 문자열로 표현하는 메서드.
+    String answer = new String(c); 
+		System.out.println(answer);
+		
+	}
+}
+
+// lecture code
