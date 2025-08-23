@@ -1,0 +1,30 @@
+// my code
+
+import java.util.*;
+
+public class Main {
+	public static String solution(String str) {
+		String answer = "";
+		int m = str.length();
+		char[] c = str.toCharArray(); // 문자열을 문자 배열로 변환. 인덱싱을 필요로하기 때문.
+		char[] d = new char[m]; // 순서를 뒤집은 문자 배열을 담기 위한 새로운 문자 배열.
+		for (int i = 0; i < m; i++) {
+			d[i] = c[m-i-1]; // 순서를 뒤집어 d 문자 배열에 담음.
+		}
+		answer = new String(d); // 문자 배열 d를 문자열로 변환하여 return.
+		return answer;
+	}
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		String[] s = new String[n];
+		
+		for (int i = 0; i < n; i++) {
+			s[i] = kb.next();
+		} // 문자열 배열 s에 입력된 단어를 담음.
+		
+		for (int i = 0; i < n; i++) {
+			System.out.println(solution(s[i]));
+		}
+	}
+}
