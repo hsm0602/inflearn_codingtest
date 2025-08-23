@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+	public static String solution(String str) {
+		String answer = "";
+		int len = 0;
+		
+		String[] s = str.split(" "); // split함수를 통해 문자열을 잘라 문자열 배열을 만들 수 있다. str을 자르는 것이기 때문에 split함수 안에는 ""을 써야 한다.
+		for (String x : s) { // for-each 구문을 사용해 코드를 간단히 만들 수 있다.
+			int m = x.length();
+			if (m>len) {
+				answer = x;
+				len = m; // 가장 긴 값을 계속 유지하기 위해 len값을 m으로 갱신하여야 한다.
+			}
+		}
+		
+		return answer;
+	}
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		String str = kb.nextLine();
+		
+		System.out.println(solution(str));
+		
+		
+	}
+}
