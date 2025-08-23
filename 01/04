@@ -28,3 +28,68 @@ public class Main {
 		}
 	}
 }
+
+// lecture code1. stringbuilder클래스 사용.
+
+import java.util.*;
+class Main {	
+	public ArrayList<String> solution(int n, String[] str){
+		ArrayList<String> answer=new ArrayList<>(); // 문자열 arraylist를 생성하여 문자열들을 담음.
+		for(String x : str){
+			String tmp=new StringBuilder(x).reverse().toString(); // stringbuilder의 reverse메서드를 사용해 문자를 뒤집음. toString메서드는 string으로 변환.
+			answer.add(tmp);                                      // stringbuilder클래스의 메서드를 사용하면 새로운 객체를 생성하지 않아 메모리 효율적.
+		}                                                         // 또한, 여러가지 메서드를 지원함. append, insert, delete, replace, substring 등.
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n=kb.nextInt();
+		String[] str=new String[n];
+		for(int i=0; i<n; i++){
+			str[i]=kb.next();
+		}
+		for(String x : T.solution(n, str)){
+			System.out.println(x);
+		}
+	}
+}
+
+// lecture code2. 직접 뒤집기 로직을 만들어 사용.
+
+import java.util.*;
+class Main {	
+	public ArrayList<String> solution(int n, String[] str){
+		ArrayList<String> answer=new ArrayList<>(); 
+		for(String x : str){
+			char[] s=x.toCharArray();
+			int lt=0, rt=x.length()-1; // lt와 rt를 사용해 직접 뒤집는 로직을 만듬.
+			while(lt<rt){ // lt가 rt보다 작을 때는 뒤집기 수행.
+				char tmp=s[lt];
+				s[lt]=s[rt];
+				s[rt]=tmp;
+				lt++;
+				rt--;
+			}
+			String tmp=String.valueOf(s); // valueOf 메서드는 string 클래스의 static 메서드로 객체를 생성하지 않고 사용 가능.
+			answer.add(tmp);
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n=kb.nextInt();
+		String[] str=new String[n];
+		for(int i=0; i<n; i++){
+			str[i]=kb.next();
+		}
+		for(String x : T.solution(n, str)){
+			System.out.println(x);
+		}
+	}
+}
+
+
