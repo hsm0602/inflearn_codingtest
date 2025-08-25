@@ -1,1 +1,30 @@
+// my code
+
+import java.util.*;
+
+public class Main {
+	public static String solution(String str) {
+		String answer = "";
+		char[] c = str.toCharArray();
+		StringBuilder sb = new StringBuilder(); // 중복되는지 판단하여 중복이 안되는 문자를 추가하기 위한 문자열 선언.
+		
+		for (int i = 0; i < c.length; i++) {
+			int count = 0; // 중복되는지 카운트하기 위한 정수 변수.
+			for (int j = 0; j < i ; j++) { // i번째 인덱스보다 앞에 있는 문자를 반복하면서 중복이 있는지 확인.
+				if (c[i] == c[j]) count++;
+			}
+			if (count == 0) { // 중복되는 문자가 없으면 sb에 문자를 append.
+				sb.append(c[i]);
+			}
+		}
+		
+		answer = sb.toString(); // sb를 String으로 변환하여 answer에 담음.
+		return answer;
+	}
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		System.out.println(solution(str));	
+	}
+}
 
