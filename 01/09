@@ -5,16 +5,15 @@ import java.util.*;
 public class Main {
 	public static int solution(String str) {
 		int answer = 0;
-		StringBuilder s = new StringBuilder("");
-		char[] c = str.toCharArray();
+		StringBuilder s = new StringBuilder(""); // 문자열에서 숫자만 골라 담기 위한 빈 StringBuilder 객체.
+		char[] c = str.toCharArray(); // Character 클래스의 isDigit 함수를 쓰기 위해 문자 배열로 변환.
 		
 		for (char x : c) {
-			if (Character.isDigit(x)) s.append(x);
+			if (Character.isDigit(x)) s.append(x); // 문자 배열의 원소가 숫자이면 StringBuilder 객체에 append.
 		}
 		
 		str = s.toString();
-		answer = Integer.parseInt(str);
-		
+		answer = Integer.parseInt(str); // Interger 클래스의 parseInt 함수를 사용해 문자열을 int형으로 변환.
 		
 		return answer;
 	}
