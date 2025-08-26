@@ -1,0 +1,27 @@
+// my code
+
+import java.util.*;
+
+public class Main {
+	public static int solution(String str) {
+		int answer = 0;
+		StringBuilder s = new StringBuilder("");
+		char[] c = str.toCharArray();
+		
+		for (char x : c) {
+			if (Character.isDigit(x)) s.append(x);
+		}
+		
+		str = s.toString();
+		answer = Integer.parseInt(str);
+		
+		
+		return answer;
+	}
+		
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		String str = kb.nextLine();
+		System.out.println(solution(str));
+	}
+}
