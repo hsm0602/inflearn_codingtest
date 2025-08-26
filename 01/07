@@ -1,0 +1,28 @@
+// my code
+
+import java.util.*;
+
+public class Main {
+	public static String solution(String str) {
+		String s = str.toLowerCase();
+		char[] c = s.toCharArray();
+		int i = 0, j = c.length-1, count = 0;
+		
+		while(i<j) {
+			if(c[i] != c[j]) count++;
+			i++;
+			j--;
+		}
+		if (count == 0) {
+			return "YES";
+		}
+		else {
+			return "NO";
+		}
+	}
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		System.out.println(solution(str));
+	}
+}
