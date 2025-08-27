@@ -1,0 +1,38 @@
+// my code
+  
+	import java.util.*;
+	
+	public class Main {
+		public static String solution(String str) {
+			char[] c = str.toCharArray(); // 문자열을 인덱싱하여 비교하기 위해 문자 배열로 변환.
+			StringBuilder s = new StringBuilder(""); // 새롭게 생성되는 문자열을 담기 위해 append 함수를 가진 StringBuilder 객체 생성.
+			
+			for (int i = 0; i < c.length; i++) { // 문자열에서 기준 i를 잡고 비교하기 위함. 
+				int j = i + 1, count = 0;
+				if (j == c.length) { // j가 c.length인 것은 i의 인덱스가 c.length-1이며 마지막 문자를 가리키고 있다는 것을 의미.
+					s.append(c[i]);
+					break;
+				}
+				while (j < c.length && c[i] == c[j]) { // j를 늘려가면서 c[i]와 c[j]를 비교. 조건문의 앞 j < c.length는 무조건 먼저 와야 뒤 조건문에서 인덱스를 초과하지 않음.
+					count++;                             // 12번째 줄에서 j가 c.length와 같으면 끝나도록 했지만 while문을 돌면서 j가 c.length와 같아질 수 있으므로 조건이 있어야함.
+					j++;
+				}
+				if (count > 0) { // 문자열 내 같은 문자가 있는 경우 해당 문자와 반복 횟수를 문자열에 append함.
+					s.append(c[i]);
+					s.append(count+1);
+				}
+				else {
+					s.append(c[i]); // 문자가 중복되지 않는다면 해당 문자만 append함.
+				}
+				i += count;	// 기준이 되는 i는 중복되는 문자들 다음을 가리켜야 하므로 count를 더해줌. 반복문이 끝날 때 +1이 되는 것을 고려.
+			}
+			
+			return s.toString();
+		}
+			
+		public static void main(String[] args) {
+			Scanner kb = new Scanner(System.in);
+			String str = kb.nextLine();
+			System.out.println(solution(str));
+		}
+	}
